@@ -131,5 +131,28 @@ def next_in_line(lst, num):
 # 	return lst[1:] + [num] if lst else "No list has been selected"
 
 
-print(next_in_line([], 6))
-print(next_in_line([5, 6, 7, 8, 9], 1))
+def simon_says(lst1, lst2):
+    return lst1[:len(lst2)-1] == lst2[1:]
+
+
+def move_to_end(lst, el):
+    return [x for x in lst if x != el] + [x for x in lst if x == el]
+# using sorting
+# def move_to_end(lst, el):
+# 	return sorted(lst, key=lambda x: x is el)
+
+
+def probability(lst, n):
+    return round(len([x for x in lst if x >= n]) / len(lst) * 100, 1)
+
+
+def amplify(num):
+    return [x if x % 4 != 0 else x*10 for x in range(1, num + 1)]
+
+
+def sort_by_length(lst):
+    return sorted(lst, key=len)
+
+
+print(sort_by_length(["a", "ccc", "dddd", "bb"]))
+print(sort_by_length(["apple", "pie", "shortcake"]))
