@@ -218,5 +218,29 @@ def cube_squareroot(num):
     return num**(3/2)
 
 
-print(cube_squareroot(81))
-print(cube_squareroot(1646089))
+def list_operation(x, y, n):
+    return [x for x in range(x, y) if x % n == 0]
+
+
+def trace(lst):
+    sum = 0
+    ind = 0
+    for arr in lst:
+        sum += arr[ind]
+        ind += 1
+    return sum
+# genius solution
+# def trace(arr):
+# 	return sum(arr[i][i] for i in range(len(arr)))
+
+
+def to_list(num):
+    return [int(x) for x in list(str(num))]
+
+
+def to_number(lst):
+    return int("".join([str(x) for x in lst]))
+
+
+print(to_list(235))
+print(to_number([2, 3, 5]))
