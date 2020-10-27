@@ -209,5 +209,14 @@ def jazzify(lst):
     # return [x[:len(x)] + "7" for x in lst]
 
 
-print(jazzify(['Dm', 'G', 'E', 'A']))
-print(jazzify(['F7', 'E7', 'A7', 'Ab7', 'Gm7', 'C7']))
+def get_discounts(nums, d):
+    percent = int(d[:- 1]) / 100
+    return [x * percent for x in nums]
+
+
+def cube_squareroot(num):
+    return num**(3/2)
+
+
+print(cube_squareroot(81))
+print(cube_squareroot(1646089))
