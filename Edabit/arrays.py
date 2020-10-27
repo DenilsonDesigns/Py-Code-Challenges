@@ -154,5 +154,60 @@ def sort_by_length(lst):
     return sorted(lst, key=len)
 
 
-print(sort_by_length(["a", "ccc", "dddd", "bb"]))
-print(sort_by_length(["apple", "pie", "shortcake"]))
+def marathon_distance(d):
+    return sum([abs(x) for x in d]) == 25
+
+
+def mapping(letters):
+    return {x: x.upper() for x in letters}
+
+
+def return_only_integer(lst):
+    return [x for x in lst if type(x) is int]
+
+
+def clone(lst):
+    lst.append(lst[:])
+    return lst
+
+
+def remove_enemies(names, enemies):
+    return [x for x in names if x not in enemies]
+
+
+def sum_of_evens(lst):
+    return sum([x for b in lst for x in b if x % 2 == 0])
+
+
+def remove_smallest(lst):
+    if lst:
+        lst.remove(min(lst))
+    return lst
+
+
+def nth_smallest(lst, n):
+    return sorted(lst)[n-1] if len(lst) > n - 1 else None
+
+
+def magnitude(list):
+    return sum([x**2 for x in list]) ** (0.5)
+
+
+def odd_or_even(word):
+    return True if len(word) % 2 == 0 else False
+
+
+def integer_boolean(n):
+    return [True if x == '1' else False for x in list(n)]
+# more cleverer way
+# def integer_boolean(n):
+# 	return [i == '1' for i in str(n)]
+
+
+def jazzify(lst):
+    return [x + "7" if x[len(x)-1] != "7" else x for x in lst]
+    # return [x[:len(x)] + "7" for x in lst]
+
+
+print(jazzify(['Dm', 'G', 'E', 'A']))
+print(jazzify(['F7', 'E7', 'A7', 'Ab7', 'Gm7', 'C7']))
