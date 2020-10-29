@@ -242,5 +242,26 @@ def to_number(lst):
     return int("".join([str(x) for x in lst]))
 
 
-print(to_list(235))
-print(to_number([2, 3, 5]))
+def prep_region_ids(region_str=""):
+    if len(list(region_str)) == 0:
+        return False
+    return tuple([x.strip() for x in region_str.split(',')])
+
+
+def calc_diff(obj, limit):
+    return sum([v for k, v in obj.items()]) - limit
+# cleaner
+# def calc_diff(m, n):
+#   return sum(m.values()) - n
+
+
+def greet_people(names):
+    return "".join(["Hello " + x + ", " for x in names])[:-2]
+
+
+# def factor_chain(lst):
+# 	return all[lst[i] ]
+
+print(factor_chain([1, 2, 4, 8, 16, 32]))
+print(factor_chain([1, 1, 1, 1, 1, 1]))
+print(factor_chain([2, 4, 6, 7, 12]))
