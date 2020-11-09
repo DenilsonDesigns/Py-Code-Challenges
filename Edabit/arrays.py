@@ -259,9 +259,47 @@ def greet_people(names):
     return "".join(["Hello " + x + ", " for x in names])[:-2]
 
 
+def factor_chain(lst):
+    for i, el in enumerate(lst):
+        if i < len(lst)-1:
+            if lst[i + 1] % el != 0:
+                return False
+    return True
+# my fav solution
 # def factor_chain(lst):
-# 	return all[lst[i] ]
+# 	return all(lst[i] % lst[i-1] == 0 for i in range(1, len(lst)))
 
-print(factor_chain([1, 2, 4, 8, 16, 32]))
-print(factor_chain([1, 1, 1, 1, 1, 1]))
-print(factor_chain([2, 4, 6, 7, 12]))
+
+def last(a, n):
+    if n == 0:
+        return []
+    if n > len(a):
+        return "invalid"
+    return a[len(a) - n:]
+
+# better
+# def last(a, n):
+#   return 'invalid' if n>len(a) else a[len(a)-n:]
+
+
+def chatroom_status(users):
+    if len(users) == 0:
+        return "no one online"
+    if len(users) == 1:
+        return "{} online".format(users[0])
+    if len(users) == 2:
+        return "{} and {} online".format(users[0], users[1])
+    return "{}, {} and {} more online".format(users[0], users[1], len(users)-2)
+
+
+def total_volume(*boxes):
+    return sum([x[0] * x[1] * x[2] for x in boxes])
+
+# better
+# def total_volume(*boxes):
+# 	return sum([x*y*z for x,y,z in boxes])
+
+
+print(total_volume([4, 2, 4], [3, 3, 3], [1, 1, 2], [2, 1, 1]))
+print(total_volume([2, 2, 2], [2, 1, 1]))
+print(total_volume([1, 1, 1]))
