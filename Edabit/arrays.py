@@ -1,3 +1,6 @@
+import uuid
+
+
 def cpp_txt(lst):
     return "".join(lst)[:-1]
 
@@ -300,6 +303,50 @@ def total_volume(*boxes):
 # 	return sum([x*y*z for x,y,z in boxes])
 
 
-print(total_volume([4, 2, 4], [3, 3, 3], [1, 1, 2], [2, 1, 1]))
-print(total_volume([2, 2, 2], [2, 1, 1]))
-print(total_volume([1, 1, 1]))
+def say_what(obj):
+    return " ".join([v for k, v in obj.items()]) + " {}".format(obj[2])
+
+
+def inclusive_list(start_num, end_num):
+    return list(range(start_num, end_num + 1, 1))
+
+
+def total_amount_adjectives(obj):
+    return len(obj.items())
+
+
+def tuck_in(lst1, lst2):
+    return [lst1[0]] + lst2 + [lst1[1]]
+    # probably better:
+    # return lst1[:1] + lst2 + lst1[-1:]
+
+
+def war_of_numbers(lst):
+    evens = [x for x in lst if x % 2 == 0]
+    odds = [x for x in lst if x % 2 != 0]
+    return abs(sum(evens) - sum(odds))
+
+
+def matrix(x, y, z):
+    return [[z] * y] * x
+
+
+def flatten_the_curve(lst):
+    return [round(sum(lst) / len(lst), 1) if len(lst) > 0 else None] * len(lst)
+
+
+def find_nemo(sentence):
+    words = sentence.split(" ")
+    index = words.index("Nemo") + 1 if "Nemo" in words else 0
+    return "I found Nemo at {}!".format(index) if index else "I can't find Nemo :("
+
+
+def number_split(n):
+    a, b = int(n/2), n - int(n/2)
+    return [min(a, b), max(a, b)]
+    # better
+    # return [n//2, n - n//2]
+
+
+print(number_split(-5))
+print(number_split(11))
