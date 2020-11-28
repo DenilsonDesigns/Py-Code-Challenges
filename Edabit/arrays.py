@@ -348,5 +348,29 @@ def number_split(n):
     # return [n//2, n - n//2]
 
 
-print(number_split(-5))
-print(number_split(11))
+def parse_list(lst):
+    return [str(x) for x in lst]
+
+
+def find_factors(n):
+    return [x for x in range(1, n+1) if n % x == 0]
+
+
+def one_list(lst):
+    return [x for b in lst for x in b]
+    # return [value for ele in lst for value in ele]
+
+
+def index_filter(indexes, string):
+    return "".join([string[x] for x in indexes]).lower()
+
+
+def spin_around(lst):
+    lefts = sum([90 for x in lst if x == 'left'])
+    rights = sum([90 for x in lst if x == 'right'])
+    return int((max(lefts, rights) - min(lefts, rights)) / 360)
+
+
+print(spin_around(['left', 'right', 'left', 'right']))
+print(spin_around(['right', 'right', 'right',
+                   'right', 'right', 'right', 'right', 'right']))
