@@ -371,6 +371,18 @@ def spin_around(lst):
     return int((max(lefts, rights) - min(lefts, rights)) / 360)
 
 
-print(spin_around(['left', 'right', 'left', 'right']))
-print(spin_around(['right', 'right', 'right',
-                   'right', 'right', 'right', 'right', 'right']))
+def first_and_last(s):
+    return ["".join(sorted(list(s))), "".join(sorted(list(s), reverse=True))]
+
+
+def sum_of_two(a, b, v):
+    for x in a:
+        for y in b:
+            if x + y == v:
+                return True
+
+    return False
+
+
+print(sum_of_two([1, 2, 3], [10, 20, 30, 40, 50], 42))
+print(sum_of_two([1, 2, 3], [10, 20, 30, 40, 50], 44))
