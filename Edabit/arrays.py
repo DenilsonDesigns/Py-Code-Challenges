@@ -382,7 +382,100 @@ def sum_of_two(a, b, v):
                 return True
 
     return False
+    # return any(i+j == v for i in a for j in b)
 
 
-print(sum_of_two([1, 2, 3], [10, 20, 30, 40, 50], 42))
-print(sum_of_two([1, 2, 3], [10, 20, 30, 40, 50], 44))
+def get_xp(d):
+    tot = 0
+    tot += d['Very Easy'] * 5
+    tot += d['Easy'] * 10
+    tot += d['Medium'] * 20
+    tot += d['Hard'] * 40
+    tot += d['Very Hard'] * 80
+
+    return str(tot) + "XP"
+
+
+def get_only_evens(nums):
+    return [x for i, x in enumerate(nums) if x % 2 == 0 and i % 2 == 0]
+
+
+def upward_trend(lst):
+    for i, x in enumerate(lst):
+        if isinstance(x, str):
+            return "Strings not permitted!"
+        if i > 0 and lst[i-1] >= x:
+            return False
+    return True
+    # def upward_trend(lst):
+    # try:
+    # 	return sorted(lst) == lst
+    # except:
+    # 	return "Strings not permitted!"
+
+
+def count_towers(towers):
+    return len([x for x in towers[len(towers) - 1][0].split(" ") if x == "##"])
+    # return towers[-1][0].count('##')
+
+
+def sum_two_smallest_nums(lst):
+    return sum(sorted([x for x in lst if x >= 0])[0:2])
+
+
+def sum_neg(lst):
+    if len(lst) == 0:
+        return []
+    count_of_pos = len([x for x in lst if x > 0])
+    sum_negs = sum([x for x in lst if x < 0])
+    return [count_of_pos, sum_negs]
+
+
+def hacker_speak(txt):
+    return txt.replace('a', '4').replace('e', '3').replace('i', '1').replace('o', '0').replace('s', '5')
+    # return txt.translate(str.maketrans('aeios', '43105'))
+
+
+def numbers_sum(lst):
+    return sum([x for x in lst if type(x) is int])
+
+
+def maurice_wins(m_snails, s_snails):
+    results = [m_snails[0] > s_snails[2], m_snails[1]
+               > s_snails[0], m_snails[2] > s_snails[1]]
+    return len([x for x in results if x]) >= 2
+
+
+def cumulative_sum(lst):
+    return [sum(lst[:i+1]) for i, x in enumerate(lst)]
+
+
+def flip_end_chars(txt):
+    if type(txt) is not str or len(txt) < 2:
+        return "Incompatible."
+    if txt[len(txt)-1] == txt[0]:
+        return "Two's a pair."
+    return txt[len(txt)-1] + txt[1:len(txt)-1] + txt[0]
+
+
+def char_index(word, char):
+    indx = [i for i, x in enumerate(word) if x == char]
+    return [min(indx), max(indx)] if indx else None
+
+
+def format_phone_number(lst):
+    chars = [str(x) for x in lst]
+    return "(" + "".join(chars[0:3]) + ") " + "".join(chars[3:6]) + "-" + "".join(chars[6:])
+    # def format_phone_number(lst):
+    #   return '({}{}{}) {}{}{}-{}{}{}{}'.format(*lst)
+
+
+def is_good_match(lst):
+    if len(lst) % 2 != 0:
+        return "bad match"
+    return [sum([x, lst[i-1]]) for i, x in enumerate(lst) if i % 2 != 0]
+
+
+print(is_good_match([1, 2, 4, 7]))
+print(is_good_match([1, 2, 4]))
+print(is_good_match([5, 7, 9, -1, 4, 2]))
