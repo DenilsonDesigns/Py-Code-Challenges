@@ -476,6 +476,19 @@ def is_good_match(lst):
     return [sum([x, lst[i-1]]) for i, x in enumerate(lst) if i % 2 != 0]
 
 
-print(is_good_match([1, 2, 4, 7]))
-print(is_good_match([1, 2, 4]))
-print(is_good_match([5, 7, 9, -1, 4, 2]))
+def cms_selector(lst, txt):
+    return sorted([x for x in lst if txt in x])
+
+
+def partially_hide(phrase):
+    return " ".join([word[0] + "-" * (len(word[1:-1])) + word[-1] for word in phrase.split(" ")])
+
+
+def how_many_missing(lst):
+    return len(list(range(min(lst), max(lst)+1))) - len(lst)
+
+
+# print(how_many_missing([1, 3]))
+print(how_many_missing([7, 10, 11, 12]))
+# print(how_many_missing([1, 3, 5, 7, 9, 11]))
+# print(how_many_missing([5, 6, 7, 8]))
