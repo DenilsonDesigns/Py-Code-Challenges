@@ -488,7 +488,77 @@ def how_many_missing(lst):
     return len(list(range(min(lst), max(lst)+1))) - len(lst)
 
 
-# print(how_many_missing([1, 3]))
-print(how_many_missing([7, 10, 11, 12]))
-# print(how_many_missing([1, 3, 5, 7, 9, 11]))
-# print(how_many_missing([5, 6, 7, 8]))
+def fifty_thirty_twenty(ati):
+    r = {}
+    r['Needs'] = ati * .5
+    r['Wants'] = ati * .3
+    r['Savings'] = ati * .2
+    return r
+    # Prefer:
+    # return {
+    # 	'Needs'  : 0.5 * ati,
+    # 	'Wants'  : 0.3 * ati,
+    # 	'Savings': 0.2 * ati,
+    # }
+
+
+def partition(txt, n):
+    r = []
+    while len(txt) > 0:
+        r.append(txt[:n])
+        txt = txt[n:]
+    return r
+    # one liner
+    # return [txt[i:i+n] for i in range(0, len(txt), n)]
+
+
+def unique_lst(lst):
+    return list(dict.fromkeys([x for x in lst if x > 0]))
+    # return sorted(set(x for x in lst if x>0), key=lst.index)
+
+
+def lonely_integer(lst):
+    for x in lst:
+        if -x not in lst:
+            return x
+    # very clever:
+    # return sum(set(lst))
+
+
+def age_difference(ages):
+    sort_ages = sorted(ages)
+    diff = sort_ages[-1] - sort_ages[-2]
+    if diff == 0:
+        return "No age difference between spouses."
+    if diff == 1:
+        return "1 year"
+    return "{} years".format(diff)
+
+
+def superheroes(heroes):
+    return sorted([x for x in heroes if x[-3:] == 'man' and x[-5:].lower() != 'woman'])
+
+
+def puzzle_pieces(a1, a2):
+    if len(a1) != len(a2):
+        return False
+    return len(set([x[0] + x[1] for x in list(zip(a1, a2))])) == 1
+
+
+def is_special_array(lst):
+    even_id = [x for i, x in enumerate(lst) if i % 2 == 0]
+    odd_ids = [x for i, x in enumerate(lst) if i % 2 != 0]
+    all_evs_are_ev = all([True if x % 2 == 0 else False for x in even_id])
+    all_odd_are_od = all([True if x % 2 != 0 else False for x in odd_ids])
+    return all_evs_are_ev and all_odd_are_od
+    # better
+    # return all(lst[i]%2==i%2 for i in range(len(lst)))
+
+
+def ranged_reversal(lst, start, finish):
+    return lst[:start] + lst[start:finish+1][::-1] + lst[finish+1:]
+
+
+print(ranged_reversal([1, 2, 3, 4, 5, 6], 1, 3))
+print(ranged_reversal([1, 2, 3, 4, 5, 6], 0, 4))
+print(ranged_reversal([9, 8, 7, 4], 0, 0))
