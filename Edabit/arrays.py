@@ -559,6 +559,48 @@ def ranged_reversal(lst, start, finish):
     return lst[:start] + lst[start:finish+1][::-1] + lst[finish+1:]
 
 
-print(ranged_reversal([1, 2, 3, 4, 5, 6], 1, 3))
-print(ranged_reversal([1, 2, 3, 4, 5, 6], 0, 4))
-print(ranged_reversal([9, 8, 7, 4], 0, 0))
+def change_types(lst):
+    r = []
+    for x in lst:
+        if type(x) is int:
+            r.append(x + 1) if x % 2 == 0 else r.append(x)
+            # r.append(x + 1)
+        if type(x) is str:
+            r.append((x + "!").title())
+        if type(x) is bool:
+            r.append(not x)
+    return r
+
+
+def transform_upvotes(txt):
+    return [int(float(x[:-1])*1000) if x[-1] == "k" else int(x)
+            for x in txt.split(" ")]
+
+
+def find_occurrences(txt, ch):
+    r = {}
+    for word in txt.split(" "):
+        r[word.lower()] = sum(1 for x in word if x.lower() == ch.lower())
+    return r
+    # return {w:w.count(ch.lower()) for w in txt.lower().split()}
+
+
+def construct_deconstruct(s):
+    return [s[:x+1] for x in list(range(0, len(s)))] + [s[:x] for x in list(range(len(s)-1, 0, -1))]
+
+
+def list_of_multiples(num, length):
+    r = []
+    x = 0
+    while len(r) < length:
+        if x % num == 0 and x > 0:
+            r.append(x)
+        x += 1
+        continue
+    return r
+    # return [i*num for i in range(1,length+1)]
+
+
+print(list_of_multiples(7, 5))
+print(list_of_multiples(12, 10))
+print(list_of_multiples(17, 7))
