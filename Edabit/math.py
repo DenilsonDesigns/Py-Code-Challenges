@@ -25,6 +25,31 @@ def absolute(n):
     # return -n if n < 0 else n
 
 
-print(absolute(-5))
-print(absolute(-5.25))
-print(absolute(250))
+def back_to_home(directions):
+    coords = [0, 0]
+    for direct in [x for x in directions]:
+        if direct == 'N':
+            coords[0] += 1
+        elif direct == 'S':
+            coords[0] -= 1
+        elif direct == 'W':
+            coords[1] += 1
+        else:
+            coords[1] -= 1
+    return coords == [0, 0]
+# slick daddy solution:
+# def back_to_home(d):
+# 	return d.count('N') == d.count('S') and d.count('E') == d.count('W')
+
+
+def weight_allowed(car, p, max_weight):
+    return (sum(p) + car) * .453592 < max_weight
+
+
+def smash_factor(bs, cs):
+    return round(bs / cs, 2)
+
+
+print(smash_factor(139.4, 93.8))
+print(smash_factor(181.2, 124.5))
+print(smash_factor(154.7, 104.3))
