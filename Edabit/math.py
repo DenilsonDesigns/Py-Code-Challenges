@@ -50,6 +50,10 @@ def smash_factor(bs, cs):
     return round(bs / cs, 2)
 
 
-print(smash_factor(139.4, 93.8))
-print(smash_factor(181.2, 124.5))
-print(smash_factor(154.7, 104.3))
+def calc_kinetic_energy(m, v):
+    return round(.5 * (m * v ** 2))
+
+
+# print(height(2))
+# print(height(5))
+# print(height(8.7))
