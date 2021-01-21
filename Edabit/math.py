@@ -54,6 +54,52 @@ def calc_kinetic_energy(m, v):
     return round(.5 * (m * v ** 2))
 
 
-# print(height(2))
-# print(height(5))
-# print(height(8.7))
+def binary_to_decimal(lst):
+    return int("".join([str(x) for x in lst]), 2)
+
+
+def outlier_number(lst):
+    evens = [x for x in lst if x % 2 == 0]
+    odds = [x for x in lst if x % 2 != 0]
+    if len(evens) == 1:
+        return evens[0]
+    return odds[0]
+
+
+def rotate_max_number(num):
+    el = sorted([str(x) for x in str(num)], reverse=True)
+    return int("".join(el))
+
+
+def leap_year(year):
+    if (year % 4) == 0:
+        if (year % 100) == 0:
+            if (year % 400) == 0:
+                return True
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
+
+
+def average_index(letters):
+    return round(sum([ord(x) - 96 for x in letters]) / len(letters), 2)
+
+
+def opposite_house(house, n):
+    odds = [x for x in range(0, (n * 2)) if x % 2 != 0]
+    evens = sorted([x for x in range(1, (n * 2) + 1) if x %
+                    2 == 0], reverse=True)
+    if house % 2 == 0:
+        return odds[evens.index(house)]
+    return evens[odds.index(house)]
+# better
+# def opposite_house(house, n):
+# 	return (n*2)-house+1
+
+
+print(opposite_house(1, 3))
+print(opposite_house(2, 3))
+print(opposite_house(7, 11))
