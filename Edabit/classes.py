@@ -79,10 +79,43 @@ class Employee:
         self.fullname = "{} {}".format(firstname, lastname)
 
 
-emp_1 = Employee("John", "Smith")
-emp_2 = Employee("Mary", "Sue")
-emp_3 = Employee("Antony", "Walker")
-emp_4 = Employee("Joshua", "Senoron")
-print(emp_1.email)
-print(emp_2.fullname)
-print(emp_3.email)
+class ones_threes_nines:
+    def __init__(self, num):
+        self.ones = int(num // 1)
+        self.threes = int(num // 3)
+        self.nines = int(num // 9)
+
+
+class User:
+    user_count = 0
+
+    def __init__(self, name):
+        User.user_count = User.user_count + 1
+        self.username = name
+
+
+class Composer:
+    count = 0
+
+    def __init__(self, name, dob, country):
+        Composer.count = Composer.count + 1
+        self.name = name
+        self.dob = dob
+        self.country = country
+
+
+class Name:
+
+    def __init__(self, fname, lname):
+        self.fname = fname.capitalize()
+        self.lname = lname.capitalize()
+        self.fullname = "{} {}".format(self.fname, self.lname)
+        self.initials = "{}.{}".format(self.fname[0], self.lname[0])
+
+
+u1 = User("johnsmith10")
+u2 = User("marysue1989")
+u3 = User("milan_rodrick")
+print(User.user_count)
+print(u2.username)
+print(u3.username)
